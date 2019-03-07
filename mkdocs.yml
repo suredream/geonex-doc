@@ -1,0 +1,9 @@
+site_name: GeoNEX Docs
+nav:
+    - Home: index.md
+    - User Guide: userguide.md
+    - Algorithm Reference: algo-ref.md
+    - Development Reference: devel-ref.md
+    - Admin Handbook: admin.md
+    - About: about.md
+theme: readthedocs
