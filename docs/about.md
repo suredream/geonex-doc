@@ -1,60 +1,28 @@
-# About mkdocs
+# About GeoNEX
 
-[mkdocs](https://www.mkdocs.org/)
-
-## gitHub
-
-mkdocs gh-deploy
+GEONEX is a web-based scientific platform for addressing on the key challenges of data-driven Geostationary (GEO) datasets, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. Framework and user interface improvements now enable GEONEX to be used for streamlining analyzing tens of thousands of CONUS as well as Full Disk Scan of GOES16 and Himawari-9.
 
 
-Lorem markdownum Daphne, saxa adeunt vertice, accipitris *geruntur* neque; se
-queri crines in numero pugnandi decepto ferarum. Cum **in** malis erat sinat
-Gorgoneas fuit, a eripiam illis *patulis*, cum pedem? Scelerata fuerat
-adloquitur [optat lumina](http://et.com/). Pro corpora!
 
-> Proceres te ullis nemorum Phoebum vestem qua mihi. Lacerat transit e **ne
-> fidae** nympha tuae, Cerambi uterque properandum ossa, aut rarior sanguisque?
-> Dominoque vestra, cum qui [pignus](http://sibihastamque.org/) Subaris deum
-> [dictis](http://digitoque.org/haerentest) tenerum committere
-> [ferax](http://timoret.com/non-concurrere.php), Pharsalia ditia siccata tanto
-> vi illi. Spinea nec pudori quos, *nascitur*. Est vidi suisque.
+The new generation of GOES satellites carry the Advanced Baseline Imager (ABI) with spectral, spatial and radiometric resolutions comparable to EOS workhorse MODIS. More importantly ABI provides observations at 5-15 minute intervals offering exciting possibilities for producing robust biophysical variables by overcoming cloud cover, enabling studies of local-to-regional biosphere-atmosphere interactions, and operational decision-making in agriculture, forestry and range management.
 
-## Color facit in te esses
 
-Omnes iunctum **iungere** caelique plurima tabellas amplecti, sororia esse
-confessa emisit caput nunc temptatis, plus. Ut sive et *amissamque* promissis
-quod! Non non *fortibus* ultra; ora manus, tremebunda quae foliisque **e**. Fine
-tali manus, maxima verum haec lateque suo cum vocis precando coniuge; est quod
-creatus Iason incepto.
 
-    var clientInfotainmentApplet = -3;
-    if (4 > bareComputingWi - 5 / cms_isp) {
-        blacklist(spamProgramDisk);
-    }
-    if (1) {
-        internet_affiliate -= us;
-        wired.tft_telecommunications_console = upload / flamingTwitterTween;
-        phreaking_hover.multiBoot(65, smsIntranetUrl(lossy_viral));
-    }
-    burn_end_add.on.batchNumDual(toggleDimmVersion, 1, winsock_white);
+The NASA Earth Exchange (NEX) team has been collaborating with the NOAA scientists and planning several GOES/ABI products for land surface monitoring. Many of the proposed products will leverage NASA’s investments in EOS algorithms. Started in 2017, GEONEX continues to focus on the key challenges of data-driven earth science, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. During the last two years, the GEONEX team have made substantial improvements to the core framework, user interface, tools, and training materials. Framework and user interface improvements now enable GEONEX to be used for streamlining analyzing tens of thousands of CONUS as well as Full Disk Scan of GOES16/17 and Himawari-8 , and 7 standardized land products are now produced on GEONEX.
 
-Pavidus inpediunt draconem Auroram: hoc, te ausis trementi vanum relevare.
-Procubuit victa tenebat mera circum nihil scelus quae prole matrumque, repetet
-arvis! Deficiunt et ulmo nodo *secundo* porrigitur sed inops his, **candida**?
 
-## Tellus auras denegat in
 
-Dextera omnis, cuius rutilasque memoro. *Tenuit* aliud, rector dona mecumque
-enim. Ino est mitior fruitur et quae dignare [parsque
-horriferamque](http://tehaec.io/edidit.php); ne esset **de est**, queruntur?
-Manu nepotes, intrare haec huius: soror non regnabat tanti. Et ubi loco paternum
-saepe non quoque scelus, quoque, mole et eque rex.
+## GEONEX Concepts
 
-1. Mota solo credite arte passu videbar
-2. Una unum iussi innumeras ulcisci omnibus
-3. Risisse placidi ubi scire salutet stirpe
+- GEONEX Account - You need to create it to get access to GEONEX resources, including AWS EC2 instances, repos, containers, tasks and buckets.
+- Buckets - AWS S3 buckets, used as input and output storage of GEONEX products
+- Repos - a dockerized image, within it a combination of a file system and GEO application was built. It can be hosted on public docker registry services (hub.docker; AWS ECR; gcr.io)
+- Containers - a standard unit on GEONEX approved by the administrator to finish specific processing/analysis jobs
+- Runner - the runtime instance of a GEONEX containers (repo).
+- Tasks  - containers related to specific output buckets, which can be browsed in the viewer
 
-In Laurenti, educat palmis speciem lucibus si consedit inde quod: cepere iram
-dedit ut *vota*. Nec fallebat penates captam; patiar curvamina utere vota cum,
-aut. Proles hac *amnem* Lemnos agrestum Actoridaeque longi, a palustribus, illo
-tubas. Fuerat ferunt suam, Siphnon inpressa regia.
+
+
+## Contact
+
+Write to us (geonex84@gmail.com) to get an account on GEONEX.
