@@ -58,6 +58,18 @@
     <a class="current" href="./">User Guide</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#geonex-concepts">GEONEX Concepts</a></li>
+    
+
+    <li class="toctree-l2"><a href="#policies">Policies</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#aws-ec2-instance">AWS EC2 instance</a></li>
+        
+        </ul>
+    
+
     </ul>
 	    </li>
           
@@ -113,7 +125,18 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="geonex-concepts">GEONEX Concepts</h1>
+<ul>
+<li>GEONEX Account - You need to create it to get access to GEONEX resources, including AWS EC2 instances, repos, containers, tasks and buckets.</li>
+<li>Buckets - AWS S3 buckets, used as input and output storage of GEONEX products. The geonex algorithm pools has different algorithms based on GEONEX datasets. The dataset category enables to display the latest ready datasets for downloading or used by scientists. NOAA GOES-16 and GOES-17 have been trackable real-time and Himawari8 is semi real-time.</li>
+<li>Repos - a dockerized image, within it a combination of a file system and GEO application was built. It can be hosted on public docker registry services (<a href="https://hub.docker.com/">hub.docker</a>; <a href="https://aws.amazon.com/ecr/">AWS ECR</a>; <a href="https://cloud.google.com/container-registry/">gcr.io</a>)</li>
+<li>Containers - a standard unit on GEONEX approved by the administrator to finish specific processing/analysis jobs. User enable to see all running, stopped, or finished tasks in the dashboard. Some user with permission also can view products from the specific tasks, and check log files for each task. These tasks are automatically executed at the back-end using EC2 instances. User can also customize the instances with different  types and sizes for running each container.</li>
+<li>Tasks - the runtime instance of a GEONEX containers (repo).</li>
+<li>Workspace  - containers related to specific output buckets, which can be browsed in the viewer</li>
+</ul>
+<h1 id="policies">Policies</h1>
+<p>After registering their images, guest user opens GEONEX Images tab, and clicks “ Request” button. The dashboard will automatically send an email notification to system administrator, and let him/her know there is one image need him/her approve. Administrator logins the dashboard and clicks “Approve” button, then finish the approval. </p>
+<h2 id="aws-ec2-instance">AWS EC2 instance</h2>
               
             </div>
           </div>
