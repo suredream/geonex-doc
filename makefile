@@ -1,0 +1,2 @@
+go:
+	mkdocs gh-deploy

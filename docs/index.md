@@ -2,7 +2,7 @@
 
 This is a collection of documentation for GeoNEX users.
 
-GEONEX aims key challenges of data-driven geostationary satellite research, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. 
+GeoNEX aims key challenges of data-driven geostationary satellite research, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. 
 
 ## Get Started 
 
