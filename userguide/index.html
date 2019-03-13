@@ -58,14 +58,11 @@
     <a class="current" href="./">User Guide</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#geonex-concepts">GEONEX Concepts</a></li>
-    
-
-    <li class="toctree-l2"><a href="#policies">Policies</a></li>
+    <li class="toctree-l2"><a href="#get-started">Get Started</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#aws-ec2-instance">AWS EC2 instance</a></li>
+            <li><a class="toctree-l3" href="#how-to-register-docker-image">How to register docker image?</a></li>
         
         </ul>
     
@@ -125,18 +122,26 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="geonex-concepts">GEONEX Concepts</h1>
+                <h2 id="get-started">Get Started</h2>
+<p>This article will guide you through your first steps in GeoNEX dashbard. You'll be working with some sample data from <a href="https://registry.opendata.aws/noaa-goes/">GOES16</a>. You'll see examples of a wildfire real-time detection using GeoNEX.</p>
+<p>In Part 1, you'll learn how to:</p>
 <ul>
-<li>GEONEX Account - You need to create it to get access to GEONEX resources, including AWS EC2 instances, repos, containers, tasks and buckets.</li>
-<li>Buckets - AWS S3 buckets, used as input and output storage of GEONEX products. The geonex algorithm pools has different algorithms based on GEONEX datasets. The dataset category enables to display the latest ready datasets for downloading or used by scientists. NOAA GOES-16 and GOES-17 have been trackable real-time and Himawari8 is semi real-time.</li>
-<li>Repos - a dockerized image, within it a combination of a file system and GEO application was built. It can be hosted on public docker registry services (<a href="https://hub.docker.com/">hub.docker</a>; <a href="https://aws.amazon.com/ecr/">AWS ECR</a>; <a href="https://cloud.google.com/container-registry/">gcr.io</a>)</li>
-<li>Containers - a standard unit on GEONEX approved by the administrator to finish specific processing/analysis jobs. User enable to see all running, stopped, or finished tasks in the dashboard. Some user with permission also can view products from the specific tasks, and check log files for each task. These tasks are automatically executed at the back-end using EC2 instances. User can also customize the instances with different  types and sizes for running each container.</li>
-<li>Tasks - the runtime instance of a GEONEX containers (repo).</li>
-<li>Workspace  - containers related to specific output buckets, which can be browsed in the viewer</li>
+<li>submit an algorithm</li>
+<li>request a cloud runner </li>
+<li>retrieve geostationary data from AWS S3 bucket</li>
+<li>check the outputs of algorithm as well as the runtime log</li>
 </ul>
-<h1 id="policies">Policies</h1>
-<p>After registering their images, guest user opens GEONEX Images tab, and clicks “ Request” button. The dashboard will automatically send an email notification to system administrator, and let him/her know there is one image need him/her approve. Administrator logins the dashboard and clicks “Approve” button, then finish the approval. </p>
-<h2 id="aws-ec2-instance">AWS EC2 instance</h2>
+<p>In Part 2, you'll learn how to:</p>
+<ul>
+<li>create visualization &amp; analytics code for your outputs</li>
+<li>run the code in the notebook</li>
+<li>share your results with others</li>
+</ul>
+<h3 id="how-to-register-docker-image">How to register docker image?</h3>
+<p>The docker image could come from one public docker hub, where user can directly download it without any permissions. User have to put image’s source, description, user name, email, and user’s organization  when registering your image. Once you register the image, the image can be found in NEX Repositories like below:</p>
+<p><img alt="img" src="/Users/jxiong1/Desktop/GHI/geonex-doc/docs/assets/wf2B6e195WerE4RuvEPfzy050_mgncjL_NUHyRlSN3ouTU8RUUygPDyWVHurnrcPX958M_t-rXmSfjfhUvk_lUe4hhtXVh4Lbd5yY1HgVW7SJnpSs40PQ2wrLQH-0M6PJc8a_oNl.png" /></p>
+<p>For each image, user can execute “Run” action. If the image has not been downloaded in current running instances, INSTANCE label will show as “null”. User can select the instance type they would like, customize the command line to run, and output like Amazon S3 bucket.</p>
+<p>Once running docker image, user can find the launched tasks in Cloud Task list, each task display some details include image names, instance type, status, launched time, command, and instance id.</p>
               
             </div>
           </div>
