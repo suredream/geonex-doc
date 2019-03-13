@@ -1,4 +1,4 @@
-# Deploy GeoNEX-dev into Production
+# Deploy GeoNEX
 
 
 

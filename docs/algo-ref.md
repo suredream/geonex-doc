@@ -1,2 +1,2 @@
-# GeoNEX Algorithm Reference
+# Algorithm Reference
 

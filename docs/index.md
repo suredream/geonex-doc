@@ -4,17 +4,28 @@ This is a collection of documentation for GeoNEX users.
 
 GeoNEX aims key challenges of data-driven geostationary satellite research, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. 
 
-## Get Started 
+*Before you get started, you might want to check out* [*our project slides*](https://www.dominodatalab.com/p/weekly-live-demo-ungated/)*.*
 
-### How to register docker image?
 
-The docker image could come from one public docker hub, where user can directly download it without any permissions. User have to put image’s source, description, user name, email, and user’s organization  when registering your image. Once you register the image, the image can be found in NEX Repositories like below:
 
-![img](assets/wf2B6e195WerE4RuvEPfzy050_mgncjL_NUHyRlSN3ouTU8RUUygPDyWVHurnrcPX958M_t-rXmSfjfhUvk_lUe4hhtXVh4Lbd5yY1HgVW7SJnpSs40PQ2wrLQH-0M6PJc8a_oNl.png)
+# Concepts in GeoNEX
 
-For each image, user can execute “Run” action. If the image has not been downloaded in current running instances, INSTANCE label will show as “null”. User can select the instance type they would like, customize the command line to run, and output like Amazon S3 bucket.
+About the word “IMAGE" and “Container”: Note that we avoid the use of the word **IMAGE** as it is way too vague and it is heavily overloaded, and also easily confused with the **Remote-Sensed Data Products** from satellite or **Imagery-based Map.** In GeoNEX, we use the word "image" to denote very different types of data and data products. We want to evangelize a new way to talk about algorithms/softwares/services running on GeoNEX.
 
-Once running docker image, user can find the launched tasks in Cloud Task list, each task display some details include image names, instance type, status, launched time, command, and instance id.
+
+
+- GEONEX Account** - An AWS account, you need to create it to get access to GEONEX resources, including algorithms, runners, tasks, AWS instances and buckets.
+- Buckets - AWS S3 buckets, used as input and output storage of GEONEX products. The geonex algorithm pools has different algorithms based on GEONEX datasets. The dataset category enables to display the latest ready datasets for downloading or used by scientists. NOAA GOES-16 and GOES-17 have been trackable real-time and Himawari8 is semi real-time.
+- Repos - a dockerized algorithm, within it a combination of a file system and GEO application was built. It can be hosted on public docker registry services ([hub.docker](https://hub.docker.com/); [AWS ECR](https://aws.amazon.com/ecr/); [gcr.io](https://cloud.google.com/container-registry/))
+- Containers - a standard unit on GEONEX approved by the administrator to finish specific processing/analysis jobs. User enable to see all running, stopped, or finished tasks in the dashboard. Some user with permission also can view products from the specific tasks, and check log files for each task. These tasks are automatically executed at the back-end using EC2 instances. User can also customize the instances with different  types and sizes for running each container.
+- Tasks - the runtime instance of a GEONEX containers.
+- Workspace  - containers related to specific output buckets, which can be browsed in the viewer
+
+# Policies
+
+After registering their images, guest user opens GEONEX Images tab, and clicks “ Request” button. The dashboard will automatically send an email notification to system administrator, and let him/her know there is one image need him/her approve. Administrator logins the dashboard and clicks “Approve” button, then finish the approval. 
+
+## AWS EC2 instance
 
 
 ## Policies
@@ -23,9 +34,11 @@ Once running docker image, user can find the launched tasks in Cloud Task list, 
 
 ## Best Practices
 
-
+### 
 
 ## Frequently Asked Questions
+
+
 
 ### How did GEONEX works?
 
@@ -45,9 +58,21 @@ We aim to support the land monitoring capabilities of new generation geostationa
 
 
 
+
+
 ### What products in plan?
 
 ![img](assets/7umXZp45CK0kajTM6yTGV2B7dZ3AgLvmyslhCaEI1-xz0ialvoAxI40TE380paz5b6EbDMZw9hvherBo-Sk9vlz9FNyI2VeFkkn-DIRVyhWYcNKxb29O4kAC9-c29giRayFk62dS.png)
 
 
+
+### What are the relationships between NEX, GeoNEX and OpenNEX?
+
+NASA Earth eXchange (NEX), a collaborative supercomputing and data analytics platform, improves the availability of Earth science data from NASA missions and other sources, models, analysis tools and research results through a centralized environment that fosters knowledge sharing, collaboration, and innovation.
+
+GEONEX (https://geonex.org) is a web-based scientific platform for earth science community to analyze the new generation of Geostationary (GEO) datasets.
+
+OpenNEX is the knowledge discovery portal of NEX.
+
+![image-20190313055334707](assets/image-20190313055334707.png)
 

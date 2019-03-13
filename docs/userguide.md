@@ -1,22 +1,36 @@
-# GEONEX Concepts
+## Get Started 
 
-- GEONEX Account - You need to create it to get access to GEONEX resources, including AWS EC2 instances, repos, containers, tasks and buckets.
-- Buckets - AWS S3 buckets, used as input and output storage of GEONEX products. The geonex algorithm pools has different algorithms based on GEONEX datasets. The dataset category enables to display the latest ready datasets for downloading or used by scientists. NOAA GOES-16 and GOES-17 have been trackable real-time and Himawari8 is semi real-time.
-- Repos - a dockerized image, within it a combination of a file system and GEO application was built. It can be hosted on public docker registry services ([hub.docker](https://hub.docker.com/); [AWS ECR](https://aws.amazon.com/ecr/); [gcr.io](https://cloud.google.com/container-registry/))
-- Containers - a standard unit on GEONEX approved by the administrator to finish specific processing/analysis jobs. User enable to see all running, stopped, or finished tasks in the dashboard. Some user with permission also can view products from the specific tasks, and check log files for each task. These tasks are automatically executed at the back-end using EC2 instances. User can also customize the instances with different  types and sizes for running each container.
-- Tasks - the runtime instance of a GEONEX containers (repo).
-- Workspace  - containers related to specific output buckets, which can be browsed in the viewer
+This article will guide you through your first steps in GeoNEX dashbard. You'll be working with some sample data from [GOES16](https://registry.opendata.aws/noaa-goes/). You'll see examples of a wildfire real-time detection using GeoNEX.
 
 
 
 
 
+In Part 1, you'll learn how to:
 
 
 
+- submit an algorithm
+- request a cloud runner 
+- retrieve geostationary data from AWS S3 bucket
+- check the outputs of algorithm as well as the runtime log
 
-# Policies
 
-After registering their images, guest user opens GEONEX Images tab, and clicks “ Request” button. The dashboard will automatically send an email notification to system administrator, and let him/her know there is one image need him/her approve. Administrator logins the dashboard and clicks “Approve” button, then finish the approval. 
 
-## AWS EC2 instance
+In Part 2, you'll learn how to:
+
+- create visualization & analytics code for your outputs
+- run the code in the notebook
+- share your results with others
+
+
+
+### How to register docker image?
+
+The docker image could come from one public docker hub, where user can directly download it without any permissions. User have to put image’s source, description, user name, email, and user’s organization  when registering your image. Once you register the image, the image can be found in NEX Repositories like below:
+
+![img](/Users/jxiong1/Desktop/GHI/geonex-doc/docs/assets/wf2B6e195WerE4RuvEPfzy050_mgncjL_NUHyRlSN3ouTU8RUUygPDyWVHurnrcPX958M_t-rXmSfjfhUvk_lUe4hhtXVh4Lbd5yY1HgVW7SJnpSs40PQ2wrLQH-0M6PJc8a_oNl.png)
+
+For each image, user can execute “Run” action. If the image has not been downloaded in current running instances, INSTANCE label will show as “null”. User can select the instance type they would like, customize the command line to run, and output like Amazon S3 bucket.
+
+Once running docker image, user can find the launched tasks in Cloud Task list, each task display some details include image names, instance type, status, launched time, command, and instance id.
