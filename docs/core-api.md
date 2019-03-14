@@ -1,4 +1,4 @@
-# Geonex-core Restful APIs Document
+# GeoNEX-core Restful APIs Document
 1. Start Runner
   **Name**: Start RealTime Runner
   **Description**: This api is used to start a real-timer runner in GEONEX dash
@@ -23,6 +23,7 @@
   **Http Request Method**: GET
   **URL**: /restart-runner
   **Input Parameter**:
+
   ```
   instance_id : String
   	image_name: String
@@ -30,6 +31,7 @@
   	runner_id : String
   	runner_name : String
   ```
+
   **Output Parameter**: success or error code
   **Request Example**: [/restart-runner?instance_id=i-01730beccb93d7c5c&image_name=geonex/active_fire_go16abi15:1.5&s3_output=s3://geonex/GO16_ABI15&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd&runner_name=Production](/restart-runner?instance_id=i-01730beccb93d7c5c&image_name=geonex/active_fire_go16abi15:1.5&s3_output=s3://geonex/GO16_ABI15&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd&runner_name=Production)
 
@@ -39,9 +41,12 @@
   **Http Request Method**: GET
   **URL**: /stop-runner
   **Input Parameter**:
+  ```
   instance_id : String
   	runner_id : String
   	runner_name : String
+  ```
+
   **Output Parameter**: success or error code
   **Request Example**: [/stop-runner?instance_id=i-01730beccb93d7c5c&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd&runner_name=Production](/stop-runner?instance_id=i-01730beccb93d7c5c&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd&runner_name=Production)
 
@@ -51,11 +56,13 @@
   **Http Request Method**: GET
   **URL**: /delete-runner
   **Input Parameter**:
+
   ```
   instance_id : String
   	runner_id : String
   	runner_name : String
   ```
+
   **Output Parameter**: success or error code
   **Request Example**: [/delete-runner?instance_id=i-01730beccb93d7c5c&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd](/delete-runner?instance_id=i-01730beccb93d7c5c&runner_id=8dcdfcd4-c21a-c8ba-5152-9475dea5f1bd)
 
@@ -65,11 +72,13 @@
   **Http Request Method**: GET
   **URL**: /send-email
   **Input Parameter**:
+
   ```
   image_name: String
   	user_name : String
   	email : String
   ```
+
   **Output Parameter**: success or error code
   **Request Example:** [/send-email?image_name=i-01730beccb93d7c5c&user_name=user1&email=email@gmail.com](/send-email?image_name=i-01730beccb93d7c5c&user_name=user1&email=email@gmail.com)
 
@@ -124,11 +133,13 @@
    **Http Request Method**: POST
    **URL**: /register-user
    **Input Parameter**: 
+
    ```
    user_name : String
    	password: String
    	Display_name : String
    email : String
    ```
+   
    **Output Parameter**: json
    **Request Example**: [/describe-users](/describe-users)
