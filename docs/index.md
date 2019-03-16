@@ -1,18 +1,18 @@
 # Welcome to GeoNEX
 
-This is a collection of documentation for GeoNEX users.
+A collection of documentation for GeoNEX users.
 
-GeoNEX aims key challenges of data-driven geostationary satellite research, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. 
+This GeoNEX project aims to address key challenges of data-driven geostationary satellite research, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. 
 
-*Before you get started, you might want to check out* [*our project slides*](https://www.dominodatalab.com/p/weekly-live-demo-ungated/)*.*
+*Before you get started, you might want to check out* [*our project slides*](https://docs.google.com/presentation/d/1tOD7abmvFd7bYaLMkiPnmYsRvU7VTu9qaGQul6sbh3k/edit?usp=sharing)*.*
 
+This documentation includes both guidelines, examples and source code docs.
 
+The documentation is accessible at [https://geonex.readthedocs.io](https://geonex.readthedocs.io)
 
 # Concepts in GeoNEX
 
 About the word “IMAGE" and “Container”: Note that we avoid the use of the word **IMAGE** as it is way too vague and it is heavily overloaded, and also easily confused with the **Remote-Sensed Data Products** from satellite or **Imagery-based Map.** In GeoNEX, we use the word "image" to denote very different types of data and data products. We want to evangelize a new way to talk about algorithms/softwares/services running on GeoNEX.
-
-
 
 - GEONEX Account** - An AWS account, you need to create it to get access to GEONEX resources, including algorithms, runners, tasks, AWS instances and buckets.
 - Buckets - AWS S3 buckets, used as input and output storage of GEONEX products. The geonex algorithm pools has different algorithms based on GEONEX datasets. The dataset category enables to display the latest ready datasets for downloading or used by scientists. NOAA GOES-16 and GOES-17 have been trackable real-time and Himawari8 is semi real-time.
