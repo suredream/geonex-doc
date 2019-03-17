@@ -1,1 +1,1 @@
-This is the documentation repo for GeoNEX project, which is accessible at [https://geonex.readthedocs.io](https://geonex.readthedocs.io)
+Documentation repo for GeoNEX project, accessible at [https://geonex.readthedocs.io](https://geonex.readthedocs.io)
