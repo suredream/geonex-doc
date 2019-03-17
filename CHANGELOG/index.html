@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Admin Handbook - GeoNEX Docs</title>
+  <title>CHANGELOG - GeoNEX Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Admin Handbook";
-    var mkdocs_page_input_path = "admin.md";
+    var mkdocs_page_name = "CHANGELOG";
+    var mkdocs_page_input_path = "CHANGELOG.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -73,21 +73,9 @@
     <a class="" href="../devel-ref/">Development Reference</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Admin Handbook</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#deploy-geonex">Deploy GeoNEX</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#appendix">Appendix</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../admin/">Admin Handbook</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -117,7 +105,7 @@
     
       
     
-    <li>Admin Handbook</li>
+    <li>CHANGELOG</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -127,61 +115,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="deploy-geonex">Deploy GeoNEX</h1>
-<h2 id="appendix">Appendix</h2>
-<h3 id="build-geonex-doc-on-readthedocs-sami">Build GeoNEX doc on readthedocs @ sami</h3>
-<p>So far the GeoNEX doc is hosted on <a href="https://github.com/suredream/geonex-doc">here</a> as a public repository, building on readthedocs and accessible at:</p>
-<p><a href="https://geonex.readthedocs.io/en/latest/">https://geonex.readthedocs.io/en/latest/</a>.</p>
-<ol>
-<li>
-<p>Signing up to Read The Docs: <a href="https://readthedocs.org/accounts/signup/">https://readthedocs.org/accounts/signup/</a></p>
-</li>
-<li>
-<p>Verify email address</p>
-</li>
-<li>
-<p>Linking to Github account</p>
-</li>
-</ol>
-<p>​   - Click on "Import a Project" button</p>
-<p>If you were not previously connected:</p>
-<p>​   - Click on "Connect to GitHub" button (note: it works with gitlab as well)</p>
-<p>​   - Click on "Authorize readthedocs"</p>
-<p>​   Your repos will appear as a list</p>
-<ol>
-<li>Adding a repo </li>
-</ol>
-<p>Click on + sign of the repo you want to add</p>
-<p>​   in Name: field enter the URL you want ex: geonex</p>
-<p>​       ATTENTION: this is irreversible, choose name carefully</p>
-<p>​   click Next</p>
-<p>​   click Admin tab</p>
-<p>​   select "mkdocs" instead of default "sphinx" in Documentation type</p>
-<p>​   click Save</p>
-<p>​   build failed -&gt; reason: unrecognized configuration "nav"</p>
-<p>​       turns out Read The Docs uses an old version of mkdocs</p>
-<p>Fixing old version issue of mkdocs</p>
-<p>​   Under project:</p>
-<p>​   click Admin</p>
-<p>​   click Advanced Settings</p>
-<p>​   in requirements file add the entry "mkdocs==1.0.4" </p>
-<p>click Save (this should resolve the build issue)</p>
-<p>After few minutes, visit the URL <a href="https://geonex.readthedocs.io/en/latest/">https://geonex.readthedocs.io/en/latest/</a></p>
-<p>​   </p>
-<p>​   </p>
+                <h3 id="v100-mar-17-2019">v1.0.0 - Mar 17, 2019</h3>
+<ul>
+<li>add CONTRIBUTING.md &amp; CHANGELOG.md</li>
+</ul>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../devel-ref/" class="btn btn-neutral" title="Development Reference"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -205,10 +146,6 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../devel-ref/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
