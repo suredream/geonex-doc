@@ -2,6 +2,7 @@ site_name: GeoNEX Docs
 nav:
     - Home: index.md
     - User Guide: userguide.md
+    - FAQ: faq.md
     - Algorithm Reference: algo-ref.md
     - Core-API Reference: core-api.md
     - Development Reference: devel-ref.md
