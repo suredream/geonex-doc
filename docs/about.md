@@ -4,7 +4,7 @@ The new generation of GOES satellites carry the Advanced Baseline Imager (ABI) w
 
 
 
-GEONEX is a web-based scientific platform for addressing on the key challenges of data-driven Geostationary (GEO) datasets, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. During the last two years, the GEONEX team have made substantial improvements to the core framework, user interface, tools, and training materials. Framework and user interface improvements now enable GEONEX to be used for streamlining analyzing tens of thousands of CONUS as well as Full Disk Scan of GOES16 and Himawari-9.
+GEONEX2 is a web-based scientific platform for addressing on the key challenges of data-driven Geostationary (GEO) datasets, including but are not limited to, access to sufficient computing resources, massive data transfer, standardized analysis workflows and reproducibility to communicate analyses so that they can be reused and extended. During the last two years, the GEONEX team have made substantial improvements to the core framework, user interface, tools, and training materials. Framework and user interface improvements now enable GEONEX to be used for streamlining analyzing tens of thousands of CONUS as well as Full Disk Scan of GOES16 and Himawari-9.
 
 
 
