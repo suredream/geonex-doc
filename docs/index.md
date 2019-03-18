@@ -20,7 +20,7 @@ A simplified system architecture diagram is shown below.
 
 Geostationary Satellite Images (GOES16/17, Himawari) are hosted on Cloud-based storage (AWS S3 buckets); specific algorithms were registered on Knowledge Hub and hosted on various docker registery services. The batch system includes two sub-parts: AWS Real-time Runner and HPC batcher, which manage computation distribution among a pool of Compute Servers, and launch algorithms container when rules were met. Outputs buckets, GeoNEX database and restful APIs were deployed on top of them to support another two web application: Dashboard and Notebook. The former application is a console to help users to access resources and tasks of GeoNEX, while the latter is a R & D environment for fast-prototype, exploration and education purposes.
 
-![img](/Users/jxiong1/Desktop/GHI/geonex-doc/docs/assets/SQjI7uLt9hwsgXLunhK680jIV7ZdQS4a5jvMGwHoM4HjYi_EvIhRxYUn1LF0Pznt7UwF3aXNR8I1IxWvPtyfV25eHrbbgR8B6dpwdgAeB__Li4rmrA1fHkkKdvXcMnFs5ju0kt0C.png)
+![img](assets/GeoNEX_diag.png)
 
 Users can access and analyze data from the public catalog using GeoNEX containers as  as well as their own analysis once dockerized. Also users can leverage their work to powerful features provided by GEONEX, including real-time analytics, standard preprocessing, cloud detection, visualization, etc.
 
@@ -169,47 +169,11 @@ After registering their images, guest user opens GEONEX Images tab, and clicks �
 ## 
 
 
-## Policies
+## Frequently Asked Questions
 
-
+Go to [here](faq).
 
 ## Best Practices
 
 ### 
-
-## Frequently Asked Questions
-
-
-
-### How did GEONEX works?
-
-### Which sensors supported?
-
-We aim to support the land monitoring capabilities of new generation geostationary platforms, includes:
-
-- ABI – Advanced Baseline Imager on GOES-R/T
-- AHI – Advanced Himawari Imager on Himawari
-- AMI – Advanced Meteorological Imager on GEO-KOMPSAT2
-- FCI – Flexible Combined Imager on MTG
-- AGRI – Advanced Geosynchronous Radiation Imager on Fengyun-4
-
-
-
-
-
-### What products in plan?
-
-![img](assets/7umXZp45CK0kajTM6yTGV2B7dZ3AgLvmyslhCaEI1-xz0ialvoAxI40TE380paz5b6EbDMZw9hvherBo-Sk9vlz9FNyI2VeFkkn-DIRVyhWYcNKxb29O4kAC9-c29giRayFk62dS.png)
-
-
-
-### What are the relationships between NEX, GeoNEX and OpenNEX?
-
-NASA Earth eXchange (NEX), a collaborative supercomputing and data analytics platform, improves the availability of Earth science data from NASA missions and other sources, models, analysis tools and research results through a centralized environment that fosters knowledge sharing, collaboration, and innovation.
-
-GEONEX (https://geonex.org) is a web-based scientific platform for earth science community to analyze the new generation of Geostationary (GEO) datasets.
-
-OpenNEX is the knowledge discovery portal of NEX.
-
-![image-20190313055334707](assets/image-20190313055334707.png)
 
