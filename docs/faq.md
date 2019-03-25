@@ -33,3 +33,11 @@ GeoNEX [(https://geonex.org)](https://geonex.org) is a web-based scientific plat
 
 ![image-20190313055334707](assets/Open-GeoNEX_diag.png)
 
+Both the research community and the public can access GeoNEX and OpenNEX platforms.
+OpenNEX has video tutorials on how to create and publish dockerized images and APIs and is well documented. Users can use both other users' or NEX sponsored images and algorithms. Similarly, GeoNEX allows for the use, publishing and visualization of real-time analytics on seamless satellite inputs. GitLab holds the collection of algorithms' source code. Docker makes it easier to create, deploy, and run the algorithms and applications by using containers. Containers (image) allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and ship it all out as one package. All cloud based processing and storage are provided by Amazon Web Services as EC2 instances for processing and S3 data buckets for storage. Local processing and storage are handled by Singularity.
+
+The work is a collaboration between NEX, NOAA, NASA, Carnegie Mellon University, Cal State Monterey Bay, Chiba University, Jaxa and NICT.
+
+### Contact Us 
+Are you a scientist? Do you want to collaborate?
+For potential collaboration, contact the GeoNEX team at <geonex84@gmail.com> and receive an account.
