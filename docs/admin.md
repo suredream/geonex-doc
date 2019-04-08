@@ -1,15 +1,167 @@
 # Deploy GeoNEX
 
+### Deploying GeoNEX on AWS
+GeoNEX consists of 3 main docker containers runnning on 1 AWS EC2 instance:
+	* geonex-db
+	* geonex-core
+	* geonex-dash
+#### I. Pre-requisites
+##### Creating Access ID - Secret Access Key
+Before you get start, you need to create following information: AWS Access Key ID and AWS Secret Access Key. For more details, refer to [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/)
 
+1. Go to [www.aws.amazon.com](www.aws.amazon.com)
+2. Click on the upper right “Sign In to the Console” button
+3. Enter your account ID, your IAM user name and your password. If you don’t have one, create one first here.
+	* One AWS account can have multiple IAM users (including yourself). So create one for yourself with adequate permissions.
+4. In the Find Services search box, enter “IAM” and click Enter
+5. In the left menu, click “Users”
+6. Click the desired user
+7. Under “Security Credentials” tab, click on “Create Access Key” button
+	* A window will pop out showing the “Access key ID” and “Secret Access Key”
+8. Click the “Show” link to view the “Secret Access Key”
+9. Save the pair in a secure location
+	* ATTENTION: After the window is closed, you can never retrieve the same “Secret Access Key”
 
+#### Granting IAM user EC2 permissions
+1. login to the admin account  [www.aws.amazon.com](www.aws.amazon.com)
+2. In the Find Services search box, enter “IAM” and click Enter
+3. In the left menu, click “Users”
+4. Click the desired user
+5. Click the "add permissions" button
+6. Select the 3rd "Attach existing policies directly"
+7. Find the policy "AmazonEC2FullAccess"
+8. Click "Next:Review" button
+9. Click "Add permissions"
+10. TODO: Add permissions for desired ports
 
+#### Launching ECE2 via AWS Management Console (browser)
+You can launched the EC2 instance using AWS console by following this [user guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
 
+1. Make sure you are signed up for AWS account, have a IAM id and a key-value access pair
+2. After you login to the console at  [www.aws.amazon.com](www.aws.amazon.com), click on EC2
+3. Click on “Launch EC2 Instance” button then select desired image
+	* A collection of existing OS images with different pre-installed packages is displayed as a list
+	* select Amazon Linux 2 AMI (HVM), SSD Volume Type 64-bit (x86)
+	*  specify type as t2.xlarge
+	* click "Launch"
+	* it will prompt you to select a key-pair (for ssh), in case you did not create one before, click create new key-pair
+	* give it a name KEY_NAME and click "Download Key Pair"
+	* secure it by giving yourself only access
+		* with the command line "chmod 400 KEY_NAME.pem" 
+		* in Windows right click on /path/my-key-pair.pem and give yourself only read access 
+			* Properties -> Security -> Advanced -> Permissions
+	* click "Launch"
+		* Failure in initiating
+	* to circumvent the failure, change the type of the instance to t1.micro
 
+#### Launching through AWS Command Line Interface (CLI local)
+You can also launch EC2 instance using command line, follow [here](https://docs.aws.amazon.com/cli/latest/reference/ec2/).
+To install AWS CLI, first make sure you have python installed. Use “pip” or “pip3” to install it, or download the MSI file for windows [here](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi):
 
+1. Double click on the downloaded AWSCLI64PY3.msi to install it on Windows OS.
+2. `pip3 install awscli --upgrade --user`
 
+	* example: launching an ec2 instance:
+`aws ec2 create-launch-template --launch-template-name TemplateForWebServer --version-description WebVersion1 --launch-template-data '{"NetworkInterfaces":[{"AssociatePublicIpAddress":true,"DeviceIndex":0,"Ipv6AddressCount":1,"SubnetId":"subnet-7b16de0c"}],"ImageId":"ami-8c1be5f6","InstanceType":"t2.small","TagSpecifications":[{"ResourceType":"instance","Tags":[{"Key":"Name","Value":"webserver"}]}]}'`
+	* example: copying from your computer to AWS S3 directory:
+`aws s3 cp myvideo.mp4 s3://mybucket/`
+	* example: chekcing AWS configuration
+`aws configure`
 
+#### Accessing EC2 instance through SSH
+For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) Make sure your computer has the ssh client installed.
 
+1. Get the id of the EC2 instance (from instance ID column or through AWS CLI command “describe-instances”
+2. Get the public DNS name of instance (same as 1.)
+3. Get IPv6 of the EC2 instance (same as 1.)
+4. Locate instance permission key (.pem) on your computer (0400 access mod)
+	* chmod 400 /path/my-key-pair.pem
+	* in Windows right click on /path/my-key-pair.pem and give yourself only read access
+5. Get default name of AMI used to launch instance (ex: ec2-user, centos…)
+6. Enable ssh traffic for your instance, visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html).
+	* Accessing instance terminal:
+	`ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com`
+	* Transferring files from local to EC2:
+	`scp -i /path/my-key-pair.pem /path/SampleFile.txt ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
+`
+	* Transferring files from ec2 instance to local
+	`scp -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com:~/SampleFile.txt ~/SampleFile2.txt
+`
 
+#### II. Deployment
+1. Launch EC2 instance (check part I)
+2. Install mySQL
+	* `sudo yum install mysql-server`
+	If above fails, do:
+	* `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
+	* `sudo yum localinstall mysql57-community-release-el7-8.noarch.rpm`
+	* `sudo yum install mysql-community-server`
+3. Install docker
+	* `sudo yum install docker`
+	* `sudo service docker stop`
+	* Add the ec2-user (or $USER) to the docker group so you can execute Docker commands without using sudo. Note that you’ll have to log out and log back in for the settings to take effect:
+	* `sudo usermod -a -G docker $USER`
+	* `sudo reboot`
+	* `sudo service docker start`
+4. Running geonex-db Image
+	* Pull geonex-db Image from repo or alternatively build from source:
+	* `sudo yum install git-core`
+	* `git clone https://gitlab.nautilus.optiputer.net/geonex/geonex-db.git`
+	* `cd geonex-db`
+	* `make build`
+	* `sudo service mysqld stop`
+    * Choose mySQL password: EXAMPLE
+	* `export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}`
+	* `export MYSQL_ROOT_PASSWORD=EXAMPLE`
+	* verify port being used by docker
+	* `sudo netstat -pna | grep 3306`
+	* `make it`
+	* `docker ps -a` 
+		* should show status “Up ..”
+	* `make test`
+5. Running geonex-core Image
+	* make sure you are inside ec2 instance with geonex-db 
+	* `git clone https://gitlab.nautilus.optiputer.net/geonex/geonex-core.git`
+	* edit config.json to have the following:
+	```
+	{
+    "dbhost": "YOUR-EC2-INSTANCE-DNS",
+    "dbuser": "root",
+    "dbpassword": " YOUR-MYSQL-PASSWORD",
+    "dbname": "geonexdb",
+    "securitygroup": "YOUR-SECURITY-GROUP-NAME",
+    "keyfilename" :"YOUR-KEY-PAIR-NAME",
+    "s3bucket" : "YOUR-BUCKET-NAME",
+    "s3ouput": "YOUR-BUCKET-OUTPUT-PATH"
+   }
+   ```
+   	* export env variables with your own AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY:
+   	* `export  AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}` 
+	* `export  AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}`
+	* `export  AWS_DEFAULT_REGION=us-west-1`
+	* `cd geonex-core`
+	* `make build`
+	* `make it`
+	* make sure you logout from session so that env variables get reset
+
+6. Running geonex-dash Image
+	* make sure you are inside ec2 instance
+	* make sure GeoNEX-db container is running
+	* `git clone https://gitlab.nautilus.optiputer.net/geonex/geonex-dash.git`
+	* edit config.json by modifying the following:
+	~~~~
+	{
+    "dbhost": "YOUR-EC2-INSTANCE-DNS",
+    "dbuser": "root",
+    "dbpassword": " YOUR-MYSQL-PASSWORD",
+    "dbname": "geonexdb",
+   	}
+	~~~~
+	* `cd geonex-dash`
+	* `make build`
+	* `make it`
+	* dashboard should be accessible at:
+		YOUR_INSTANCE_IP:8080/, if not modify allowed ports in security group
 ## Appendix
 
 ### Build GeoNEX doc on readthedocs @ sami - sami@Jun: done
