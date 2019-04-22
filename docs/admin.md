@@ -2,9 +2,10 @@
 
 ### Deploying GeoNEX on AWS
 GeoNEX consists of 3 main docker containers runnning on 1 AWS EC2 instance:
-	* geonex-db
-	* geonex-core
-	* geonex-dash
+
+* geonex-db
+* geonex-core
+* geonex-dash
 #### I. Pre-requisites
 ##### Creating Access ID - Secret Access Key
 Before you get start, you need to create following information: AWS Access Key ID and AWS Secret Access Key. For more details, refer to [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/)
@@ -41,8 +42,8 @@ You can launched the EC2 instance using AWS console by following this [user guid
 2. After you login to the console at  [www.aws.amazon.com](www.aws.amazon.com), click on EC2
 3. Click on “Launch EC2 Instance” button then select desired image
 	* A collection of existing OS images with different pre-installed packages is displayed as a list
-	* select Amazon Linux 2 AMI (HVM), SSD Volume Type 64-bit (x86)
-	*  specify type as t2.xlarge
+	* select **Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0ec6517f6edbf8044**
+	*  specify type as **t2.xlarge**  (for deployment, will currently give a launch failure), **t2.micro** (for testing)
 	* click "Launch"
 	* it will prompt you to select a key-pair (for ssh), in case you did not create one before, click create new key-pair
 	* give it a name KEY_NAME and click "Download Key Pair"
@@ -92,10 +93,7 @@ For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 1. Launch EC2 instance (check part I)
 2. Install mySQL
 	* `sudo yum install mysql-server`
-	If above fails, do:
-	* `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
-	* `sudo yum localinstall mysql57-community-release-el7-8.noarch.rpm`
-	* `sudo yum install mysql-community-server`
+	If above fails, you likely did not choose the correct Amazon Linux Image.
 3. Install docker
 	* `sudo yum install docker`
 	* `sudo service docker stop`
@@ -110,7 +108,7 @@ For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 	* `cd geonex-db`
 	* `make build`
 	* `sudo service mysqld stop`
-    * Choose mySQL password: EXAMPLE
+    * Choose mySQL password and store in: MYSQL_ROOT_PASSWORD
 	* `export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}`
 	* `export MYSQL_ROOT_PASSWORD=EXAMPLE`
 	* verify port being used by docker
@@ -119,6 +117,23 @@ For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 	* `docker ps -a` 
 		* should show status “Up ..”
 	* `make test`
+	* access the geonex-db container terminal: `docker exec -it geonex-db /bin/bash`
+	* login to the mysql DB: mysql -uroot -p`
+	* `ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'MYSQL_ROOT_PASSWORD';`
+	* `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MYSQL_ROOT_PASSWORD';`
+	* exit mysql DB `exit`
+	* exit geonex-db container `exit`
+	* login again from main instance: `mysql -uroot -p -h 0.0.0.0 -P 3306`
+	* `create database geonexdb`
+	* `use geonexdb`
+	* `source ~/geonex-db/sql-scripts/CreateTables.sql`
+	* `source ~/geonex-db/sql-scripts/InsertData.sql`
+	* make sure scripts were correctly executed by checking mysql tables:
+	`select * from user;` and `select * from image`. make sure more than 1 record (rows) are available in the image table.
+if not, execute them line by line by copy pasting on mysql and clicking enter for each
+
+
+
 5. Running geonex-core Image
 	* make sure you are inside ec2 instance with geonex-db 
 	* `git clone https://gitlab.nautilus.optiputer.net/geonex/geonex-core.git`
