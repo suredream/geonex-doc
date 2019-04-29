@@ -1,12 +1,29 @@
 # Deploy GeoNEX
 
-### Deploying GeoNEX on AWS
+GeoNEX consists of 2 main parts:
+
+ I.GeoNEX service 
+ II.GeoNEX product
+
+GeoNEX service allows users to run and monitor their docker Images in real-time through a graphical user interface while seamlessly ingesting remote sensing data from any source including GeoNEX products.
+GeoNEX product is the platform that generates GeoNEX products and make them available for users such as:
+
+ 	1. geonex/active_fire_go16abi15
+ 	2. geonex/land_surface_temperature_go16abi15
+ 	3. geonex/surface_reflectance_hm08ahi12
+ 	4. geonex/surface_solar_radiation_hm08ahi16
+ 	5. geonex/top_of_atmosphere_hm08ahi05
+
+More details about the products can be found here.
+
+### I. Deploying GeoNEX service on AWS
 GeoNEX consists of 3 main docker containers runnning on 1 AWS EC2 instance:
 
 * geonex-db
 * geonex-core
 * geonex-dash
-#### I. Pre-requisites
+
+#### 1. Pre-requisites
 ##### Creating Access ID - Secret Access Key
 Before you get start, you need to create following information: AWS Access Key ID and AWS Secret Access Key. For more details, refer to [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/)
 
@@ -35,7 +52,7 @@ Before you get start, you need to create following information: AWS Access Key I
 9. Click "Add permissions"
 10. TODO: Add permissions for desired ports
 
-#### Launching ECE2 via AWS Management Console (browser)
+#### Launching EC2 via AWS Management Console (browser)
 You can launched the EC2 instance using AWS console by following this [user guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
 
 1. Make sure you are signed up for AWS account, have a IAM id and a key-value access pair
@@ -89,7 +106,7 @@ For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 	`scp -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com:~/SampleFile.txt ~/SampleFile2.txt
 `
 
-#### II. Deployment
+#### 2. Deployment
 1. Launch EC2 instance (check part I)
 2. Install mySQL
 	* `sudo yum install mysql-server`
@@ -177,9 +194,13 @@ if not, execute them line by line by copy pasting on mysql and clicking enter fo
 	* `make it`
 	* dashboard should be accessible at:
 		YOUR_INSTANCE_IP:8080/, if not modify allowed ports in security group
+
+### II. Deploying GeoNEX product on AWS
+#### 1. Pre-requisites
+#### 2. Deployment
 ## Appendix
 
-### Build GeoNEX doc on readthedocs @ sami - sami@Jun: done
+### Build GeoNEX doc on readthedocs
 
 So far the GeoNEX doc is hosted on [here](https://github.com/suredream/geonex-doc) as a public repository, building seamlessly after commits on readthedocs and accessible at:
 
@@ -223,5 +244,5 @@ To setup the above continuous integration mechanism, follow these steps:
 
 ​	
 
-​	
+
 
