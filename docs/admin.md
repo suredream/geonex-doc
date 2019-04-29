@@ -2,8 +2,8 @@
 
 GeoNEX consists of 2 main parts:
 
- I.GeoNEX service 
- II.GeoNEX product
+1. GeoNEX service 
+2. GeoNEX product
 
 GeoNEX service allows users to run and monitor their docker Images in real-time through a graphical user interface while seamlessly ingesting remote sensing data from any source including GeoNEX products.
 GeoNEX product is the platform that generates GeoNEX products and make them available for users such as:
@@ -16,14 +16,7 @@ GeoNEX product is the platform that generates GeoNEX products and make them avai
 
 More details about the products can be found here.
 
-### I. Deploying GeoNEX service on AWS
-GeoNEX consists of 3 main docker containers runnning on 1 AWS EC2 instance:
-
-* geonex-db
-* geonex-core
-* geonex-dash
-
-#### 1. Pre-requisites
+### Pre-requisites
 ##### Creating Access ID - Secret Access Key
 Before you get start, you need to create following information: AWS Access Key ID and AWS Secret Access Key. For more details, refer to [here](https://aws.amazon.com/premiumsupport/knowledge-center/create-access-key/)
 
@@ -40,7 +33,7 @@ Before you get start, you need to create following information: AWS Access Key I
 9. Save the pair in a secure location
 	* ATTENTION: After the window is closed, you can never retrieve the same “Secret Access Key”
 
-#### Granting IAM user EC2 permissions
+##### Granting IAM user EC2 permissions
 1. login to the admin account  [www.aws.amazon.com](www.aws.amazon.com)
 2. In the Find Services search box, enter “IAM” and click Enter
 3. In the left menu, click “Users”
@@ -52,7 +45,7 @@ Before you get start, you need to create following information: AWS Access Key I
 9. Click "Add permissions"
 10. TODO: Add permissions for desired ports
 
-#### Launching EC2 via AWS Management Console (browser)
+##### Launching EC2 via AWS Management Console (browser)
 You can launched the EC2 instance using AWS console by following this [user guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
 
 1. Make sure you are signed up for AWS account, have a IAM id and a key-value access pair
@@ -72,7 +65,7 @@ You can launched the EC2 instance using AWS console by following this [user guid
 		* Failure in initiating
 	* to circumvent the failure, change the type of the instance to t1.micro
 
-#### Launching through AWS Command Line Interface (CLI local)
+##### Launching through AWS Command Line Interface (CLI local)
 You can also launch EC2 instance using command line, follow [here](https://docs.aws.amazon.com/cli/latest/reference/ec2/).
 To install AWS CLI, first make sure you have python installed. Use “pip” or “pip3” to install it, or download the MSI file for windows [here](https://s3.amazonaws.com/aws-cli/AWSCLI64PY3.msi):
 
@@ -86,7 +79,7 @@ To install AWS CLI, first make sure you have python installed. Use “pip” or 
 	* example: chekcing AWS configuration
 `aws configure`
 
-#### Accessing EC2 instance through SSH
+##### Accessing EC2 instance through SSH
 For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) Make sure your computer has the ssh client installed.
 
 1. Get the id of the EC2 instance (from instance ID column or through AWS CLI command “describe-instances”
@@ -105,8 +98,15 @@ For more details visit [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuid
 	* Transferring files from ec2 instance to local
 	`scp -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com:~/SampleFile.txt ~/SampleFile2.txt
 `
+---
 
-#### 2. Deployment
+### Deploying GeoNEX service on AWS
+GeoNEX consists of 3 main docker containers runnning on 1 AWS EC2 instance:
+
+* geonex-db
+* geonex-core
+* geonex-dash
+
 1. Launch EC2 instance (check part I)
 2. Install mySQL
 	* `sudo yum install mysql-server`
@@ -194,10 +194,10 @@ if not, execute them line by line by copy pasting on mysql and clicking enter fo
 	* `make it`
 	* dashboard should be accessible at:
 		YOUR_INSTANCE_IP:8080/, if not modify allowed ports in security group
+---
 
-### II. Deploying GeoNEX product on AWS
-#### 1. Pre-requisites
-#### 2. Deployment
+### Deploying GeoNEX product on AWS
+
 ## Appendix
 
 ### Build GeoNEX doc on readthedocs

@@ -1,5 +1,6 @@
-![logo](assets/GEO-NEX_logo_v3_400.png)
-
+<!-- ![logo](assets/GEO-NEX_logo_v3_400.png) -->
+<div style="text-align:center"><img src="assets/GEO-NEX_logo_v3_400.png" /></div>
+<br>
 # Welcome to GeoNEX
 
 A collection of documentation for GeoNEX users.
