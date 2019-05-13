@@ -212,7 +212,7 @@ The entire workflow can be deployed on one EC2 instance using one AWS account, a
 One disadvantage of the Single Instance design is low efficiency of resource usage, since a large EC2 instance must be operating continuously.
 A better alternative would be to use a micro EC2 instance to monitor the official GOES-16 and GOES-17 data notification stream, and once new data is available, launch a new large instance to execute the GEONEX algorithms with latest GOES scans. The smaller instance would thus consist of a controller, which is responsible for monitoring, collecting the topics into amazon dynamodb after filtering region, type, and band, then check whether the dataset is ready for processing, also control another EC2 instance, such as start, and stop.  The small instance would be continously running. The larger instance, named executor, is only responsible for running the algorithms after downloading required datasets and generating the final products into Amazon S3, and is initiated and terminated by the controller instance thus saving on resources.
 The diagram for the design is shown in the figure below.
-![img](assets/GeoNEX_prod2.ng)
+![img](assets/GeoNEX_prod2.png)
 
 ## Appendix
 
