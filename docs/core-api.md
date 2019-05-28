@@ -9,10 +9,10 @@
 
   ```
   instance_type : String
-  	image_name: String
-  	s3_output: String
-  	runner_id : String
-  	runner_name : String
+  image_name: String
+  s3_output: String
+  runner_id : String
+  runner_name : String
   ```
 
   - **Output Parameter**: success or error code
@@ -28,10 +28,10 @@
 
   ```
   instance_id : String
-  	image_name: String
-  	s3_output: String
-  	runner_id : String
-  	runner_name : String
+  image_name: String
+  s3_output: String
+  runner_id : String
+  runner_name : String
   ```
 
   - **Output Parameter**: success or error code
@@ -46,8 +46,8 @@
   - **Input Parameter**:
   ```
   instance_id : String
-  	runner_id : String
-  	runner_name : String
+  runner_id : String
+  runner_name : String
   ```
 
   - **Output Parameter**: success or error code
@@ -63,8 +63,8 @@
 
   ```
   instance_id : String
-  	runner_id : String
-  	runner_name : String
+  runner_id : String
+  runner_name : String
   ```
 
   - **Output Parameter**: success or error code
@@ -80,8 +80,8 @@
 
   ```
   image_name: String
-  	user_name : String
-  	email : String
+  user_name : String
+  email : String
   ```
 
   - **Output Parameter**: success or error code
