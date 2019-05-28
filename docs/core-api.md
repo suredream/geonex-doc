@@ -8,11 +8,11 @@
   - **Input Parameter**:
 
   ```
-  - instance_type : String
-  - image_name: String
-  - s3_output: String
-  - runner_id : String
-  - runner_name : String
+  instance_type : String
+  image_name: String
+  s3_output: String
+  runner_id : String
+  runner_name : String
   ```
 
   - **Output Parameter**: success or error code
