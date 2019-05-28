@@ -147,8 +147,8 @@
 
    ```
    user_name : String
-   	password: String
-   	Display_name : String
+   password: String
+   Display_name : String
    email : String
    ```
    
